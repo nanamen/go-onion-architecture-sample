@@ -1,0 +1,56 @@
+# github.com/go-task/task
+
+version: '2'
+
+tasks:
+  default:
+    deps:
+      - task: build
+
+  build:
+    desc: build main.go
+    cmds:
+      - go build -i -v main.go
+    silent: true
+
+  run:
+    desc: run main.go
+    cmds:
+      - go run main.go
+
+  dep_ensure:
+    desc: get and update dependencies
+    cmds:
+      - dep ensure
+
+  dep_add:
+    desc: add dependencies usage> task dep_add repo=path/to/repo
+    cmds:
+      - dep ensure -add {{.repo}}
+    vars:
+      repo:
+
+  test:
+    desc: run go test usage> task test PACKAGE=path/to/package
+    cmds:
+      - go test {{.PACKAGE}}
+    vars:
+      PACKAGE:
+
+  test_all:
+    desc: run all test
+    cmds:
+      - go test ./...
+
+  format:
+    desc: format go sources in current project
+    cmds:
+      - go fmt -x ./...
+    silent: true
+
+  lint:
+    desc: source code lint check
+    cmds:
+      - gometalinter ./... --config=lint_config.json
+    silent: true
+

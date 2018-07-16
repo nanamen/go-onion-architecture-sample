@@ -1,0 +1,11 @@
+server :
+  port : "1323"
+  mock : false
+
+# mysql
+database :
+  host : "dbhost"
+  port : "port"
+  user : "user"
+  password : "password"
+  database : "database"
