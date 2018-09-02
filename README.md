@@ -1,5 +1,5 @@
-### go-echo-rest-sample
-go-echo-rest-sample(Go, echo, REST, DDD)
+### go-onion-architecture-sample
+onion-architecture sample(Go, echo, REST, DDD)
 
 ## Depends on
 * echo
